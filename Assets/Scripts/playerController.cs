@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour
 
     bool floorIsDetected = false;
     bool isJump = false;
+    //bool doubleJump = false;
     public float jumpForce = 100f;
 
     // Start is called before the first frame update
@@ -51,12 +52,13 @@ public class playerController : MonoBehaviour
         if(Physics.Raycast(transform.position, floor, 0.55f))
         {
             floorIsDetected = true;
-            print("Toca Suelo");
+            
+            //print("Toca Suelo");
         }
         else
         {
             floorIsDetected = false;
-            print("No Toca Suelo");
+            //print("No Toca Suelo");
         }
 
         isJump = Input.GetButtonDown("Jump");
@@ -64,6 +66,9 @@ public class playerController : MonoBehaviour
         if (isJump && floorIsDetected)
         {
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+
+
         }
+        
     }
 }

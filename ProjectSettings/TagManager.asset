@@ -6,6 +6,7 @@ TagManager:
   tags:
   - collectableOne
   - collectableTwo
+  - MoveElement
   layers:
   - Default
   - TransparentFX
