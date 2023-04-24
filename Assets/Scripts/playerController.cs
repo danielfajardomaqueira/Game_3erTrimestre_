@@ -13,6 +13,11 @@ public class playerController : MonoBehaviour
     public float horizontalInput;
     private float verticalInput;
     public float horizontalMouse;
+    public LayerMask layerMask;
+
+    public float playerHeight;
+    public float playerRadius;
+    public float moveDistance;
 
     bool floorIsDetected = false;
     bool isJump = false;
@@ -35,14 +40,27 @@ public class playerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         horizontalMouse = Input.GetAxis("Mouse X");
 
-        //Movimiento hacia Adelante
+        
 
-        transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);
+        
 
         //Movimiento Lateral
 
         transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);
 
+        //Movimiento hacia Adelante
+        //Colision con pared
+        if (!Physics.CapsuleCast(transform.position, transform.position+Vector3.up * playerHeight,
+            playerRadius, transform.forward, speed*Time.deltaTime, layerMask))
+        {
+            
+            transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);
+
+        }
+        else
+        {
+            Debug.Log($"pared");
+        }
 
 
         //Salto
