@@ -50,7 +50,7 @@ public class playerController : MonoBehaviour
 
         //Movimiento hacia Adelante
         //Colision con pared
-        if (!Physics.CapsuleCast(transform.position, transform.position+Vector3.up * playerHeight,
+        if (!Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight,
             playerRadius, transform.forward, speed*Time.deltaTime, layerMask))
         {
             
@@ -59,7 +59,7 @@ public class playerController : MonoBehaviour
         }
         else
         {
-            Debug.Log($"pared");
+            //Debug.Log($"pared");
         }
 
 
