@@ -10,6 +10,7 @@ public class barraVida : MonoBehaviour
     public float vidaActual;
     public float vidaMaxima;
     public GameObject deadMessage;
+    //public GameObject player;
 
     // Start is called before the first frame update
     void Start()
