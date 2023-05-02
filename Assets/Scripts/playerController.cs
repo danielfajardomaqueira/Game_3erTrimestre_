@@ -53,8 +53,9 @@ public class playerController : MonoBehaviour
         if (!Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight,
             playerRadius, transform.forward, speed*Time.deltaTime, layerMask))
         {
-            
+
             transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);
+            //transform.position += new Vector3(transform.position.x,  transform.position.y, verticalInput * speed * Time.deltaTime);
 
         }
         else

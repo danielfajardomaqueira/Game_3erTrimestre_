@@ -8,10 +8,13 @@ public class DoDamage : MonoBehaviour
     public float countDamage;
 
     private BloodEffect bloodEffect;
+
+    private CameraShake shake;
     // Start is called before the first frame update
     void Start()
     {
         bloodEffect = FindObjectOfType<BloodEffect>();
+        shake = FindObjectOfType<CameraShake>();
     }
 
     // Update is called once per frame
@@ -25,7 +28,8 @@ public class DoDamage : MonoBehaviour
         if (other.CompareTag("Player") && other.GetComponent<barraVida>())
         {
             other.GetComponent<barraVida>().TakingDamage(countDamage);
-            StartCoroutine(bloodEffect.Blood()); 
+            StartCoroutine(bloodEffect.Blood());
+            StartCoroutine(shake.Shake());
         }
     }
 
