@@ -24,11 +24,13 @@ public class playerController : MonoBehaviour
     //bool doubleJump = false;
     public float jumpForce = 100f;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        anim = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,9 +42,6 @@ public class playerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         horizontalMouse = Input.GetAxis("Mouse X");
 
-        
-
-        
 
         //Movimiento Lateral
 
@@ -55,6 +54,9 @@ public class playerController : MonoBehaviour
         {
 
             transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);
+            //anim.SetFloat("movimientos", 0.1667f);
+            
+            
             //transform.position += new Vector3(transform.position.x,  transform.position.y, verticalInput * speed * Time.deltaTime);
 
         }
@@ -68,16 +70,19 @@ public class playerController : MonoBehaviour
 
         Vector3 floor = transform.TransformDirection(Vector3.down); //Solo salta si esta tocando el suelo
 
-        if(Physics.Raycast(transform.position, floor, 0.55f))
+        if(Physics.Raycast(transform.position, floor, 0.15f))
         {
             floorIsDetected = true;
+            anim.SetFloat("movimientos", 0);
             
             //print("Toca Suelo");
         }
         else
         {
             floorIsDetected = false;
+            anim.SetFloat("movimientos", 0.5f);
             //print("No Toca Suelo");
+
         }
 
         isJump = Input.GetButtonDown("Jump");
@@ -85,7 +90,7 @@ public class playerController : MonoBehaviour
         if (isJump && floorIsDetected)
         {
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
-
+            anim.SetFloat("movimientos", 0.333f);
 
         }
         
