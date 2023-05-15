@@ -19,7 +19,7 @@ public class playerController : MonoBehaviour
     public float playerRadius;
     public float moveDistance;
 
-    bool floorIsDetected = false;
+    [SerializeField]bool floorIsDetected = false;
     bool isJump = false;
     //bool doubleJump = false;
     public float jumpForce = 100f;
@@ -69,13 +69,15 @@ public class playerController : MonoBehaviour
         //Salto
 
         Vector3 floor = transform.TransformDirection(Vector3.down); //Solo salta si esta tocando el suelo
-
-        if(Physics.Raycast(transform.position, floor, 0.15f))
+        Color c = Color.red;
+        if(Physics.Raycast(transform.position + 0.1f * Vector3.up, floor, 0.15f))
         {
             floorIsDetected = true;
+            //Debug.Log($"toco suelo");
             anim.SetFloat("movimientos", 0);
-            
+
             //print("Toca Suelo");
+            c = Color.green;
         }
         else
         {
@@ -84,7 +86,7 @@ public class playerController : MonoBehaviour
             //print("No Toca Suelo");
 
         }
-
+        Debug.DrawRay(transform.position + 0.1f * Vector3.up, Vector3.down * 0.15f, c);
         isJump = Input.GetButtonDown("Jump");
 
         if (isJump && floorIsDetected)
