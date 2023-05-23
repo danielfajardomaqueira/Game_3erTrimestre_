@@ -35,5 +35,12 @@ public class barraVida : MonoBehaviour
             Destroy(gameObject);
             //Instantiate(deadMessage);
         }
+
+       
+    }
+
+    public void CountHealth(float health)
+    {
+        vidaActual += health;
     }
 }

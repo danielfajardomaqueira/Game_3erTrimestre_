@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpinHeart : MonoBehaviour
 {
     private int speedRot = 140;
-
+    public float countHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +21,14 @@ public class SpinHeart : MonoBehaviour
     private void coinSpin()
     {
         transform.Rotate(Vector3.up, speedRot * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && other.GetComponent<barraVida>())
+        {
+            other.GetComponent<barraVida>().CountHealth(countHealth);
+            
+        }
     }
 }

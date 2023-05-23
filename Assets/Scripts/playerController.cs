@@ -46,6 +46,10 @@ public class playerController : MonoBehaviour
         //Movimiento Lateral
 
         transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);
+        anim.SetBool("Run", true);
+        anim.SetBool("Idle", false);
+        anim.SetBool("Jump2", false);
+        anim.SetBool("Jump1", false);
 
         //Movimiento hacia Adelante
         //Colision con pared
@@ -54,9 +58,11 @@ public class playerController : MonoBehaviour
         {
 
             transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);
-            //anim.SetFloat("movimientos", 0.1667f);
-            
-            
+            anim.SetBool("Run",true);
+            anim.SetBool("Idle", false);
+            anim.SetBool("Jump2", false);
+            anim.SetBool("Jump1", false);
+
             //transform.position += new Vector3(transform.position.x,  transform.position.y, verticalInput * speed * Time.deltaTime);
 
         }
@@ -74,15 +80,19 @@ public class playerController : MonoBehaviour
         {
             floorIsDetected = true;
             //Debug.Log($"toco suelo");
-            anim.SetFloat("movimientos", 0);
-
+            anim.SetBool("Run", false);
+            anim.SetBool("Jump2", false);
+            anim.SetBool("Jump1", false);
             //print("Toca Suelo");
             c = Color.green;
         }
         else
         {
             floorIsDetected = false;
-            anim.SetFloat("movimientos", 0.5f);
+            anim.SetBool("Jump2", true);
+            anim.SetBool("Idle", false);
+            anim.SetBool("Run", false);
+            anim.SetBool("Jump1", false);
             //print("No Toca Suelo");
 
         }
@@ -92,8 +102,10 @@ public class playerController : MonoBehaviour
         if (isJump && floorIsDetected)
         {
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
-            anim.SetFloat("movimientos", 0.333f);
-
+            anim.SetBool("Jump1", true);
+            anim.SetBool("Idle", false);
+            anim.SetBool("Run", false);
+            anim.SetBool("Jump2", false);
         }
         
     }
