@@ -7,6 +7,8 @@ public class playerController : MonoBehaviour
 
     Rigidbody rb;
 
+    public ParticleSystem oneParticle;
+
     public float rotSpeed = 100f;
     public float speed = 10f;
     public float turnSpeed = 350f;

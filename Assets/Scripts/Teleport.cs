@@ -5,6 +5,8 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
 
+    public ParticleSystem oneParticle;
+    public AudioClip[] teleportSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,8 @@ public class Teleport : MonoBehaviour
         thePlayer.transform.position = Target.transform.position;
         //thePlayer.transform.LookAt( Target.transform.forward);
         float yAngle = Target.transform.rotation.eulerAngles.y - thePlayer.transform.rotation.eulerAngles.y;
-        thePlayer.transform.Rotate(0, yAngle, 0); 
+        thePlayer.transform.Rotate(0, yAngle, 0);
+        oneParticle.Play();
     }
 
 }
