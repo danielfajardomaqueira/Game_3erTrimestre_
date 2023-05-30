@@ -7,7 +7,7 @@ public class countCollectable : MonoBehaviour
 {
 
     public int collectableOne = 0;
-    private int maxCollectableOne = 17;
+    //private int maxCollectableOne = 17;
     public int collectableTwo = 0;
 
     public GameObject redInvisibleWall;

@@ -2,33 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Teleport : MonoBehaviour
+public class DeathZone : MonoBehaviour
 {
-
-    public ParticleSystem oneParticle;
-    public AudioClip[] teleportSound;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //public Teleport teleport;
     public Transform Target;
     public GameObject thePlayer;
-
     private void OnTriggerEnter(Collider other)
     {
         thePlayer.transform.position = Target.transform.position;
-        
         float yAngle = Target.transform.rotation.eulerAngles.y - thePlayer.transform.rotation.eulerAngles.y;
         thePlayer.transform.Rotate(0, yAngle, 0);
-        oneParticle.Play();
-    }
+        //if (other.CompareTag("Player"))
+        //{
+        //Debug.Log("MORIR ES VIVIR");
 
+        //TODO: enviar al teleport de la variable
+        //}
+    }
 }
