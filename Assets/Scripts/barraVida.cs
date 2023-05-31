@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class barraVida : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class barraVida : MonoBehaviour
     public Image barraDeVida;
     public float vidaActual;
     public float vidaMaxima;
-    public GameObject deadMessage;
+    public GameObject gameOverPanel;
     //public GameObject player;
 
     // Start is called before the first frame update
@@ -31,9 +32,11 @@ public class barraVida : MonoBehaviour
         
         if(vidaActual <= 0)
         {
-            Time.timeScale = 0;
-            Destroy(gameObject);
-            //Instantiate(deadMessage);
+            SceneManager.LoadScene("GameOver");
+            //Time.timeScale = 0;
+
+            //Instantiate(gameOverPanel);
+
         }
 
        
