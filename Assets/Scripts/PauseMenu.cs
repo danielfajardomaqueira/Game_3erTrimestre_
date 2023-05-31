@@ -16,22 +16,28 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pause = !pause;
-            PauseMenuPanel.SetActive(pause);
-            Time.timeScale = 0f;
+            Pause();
         }
+        
     }
 
     public GameObject PauseMenuPanel;
     public bool pause;
 
 
-    //public void Pause()
-    //{
-        //PauseMenuPanel.SetActive(true);
-        //Time.timeScale = 0f;
-    //}
-
+    public void Pause()
+    {
+        pause = !pause;
+        PauseMenuPanel.SetActive(pause);
+        if (pause)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
     public void Resume()
     {
         PauseMenuPanel.SetActive(false);
