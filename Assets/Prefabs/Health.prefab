@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2371346097386003745}
   - component: {fileID: -8508011855495727544}
   - component: {fileID: 7141154094775235209}
+  - component: {fileID: -7375790287720018239}
   m_Layer: 0
   m_Name: Health
   m_TagString: collectableTwo
@@ -111,3 +112,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countHealth: 40
+--- !u!114 &-7375790287720018239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316782457511492852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7d885a32ea4be449174bcdce5349e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

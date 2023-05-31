@@ -11,6 +11,11 @@ public class AudioManager : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip coinClip;
+
+    public AudioClip heartClip;
+
+    public AudioClip enemyDeathClip;
+
     void Start()
     {
         if(sharedInstance!= null)
@@ -26,4 +31,13 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(coinClip);
     }
 
+    public void PlayHeartSound()
+    {
+        audioSource.PlayOneShot(heartClip);
+    }
+
+    public void PlayEnemyDeathSound()
+    {
+        audioSource.PlayOneShot(enemyDeathClip);
+    }
 }

@@ -40,7 +40,7 @@ public class countCollectable : MonoBehaviour
 
     private void Update()
     {
-        if (collectableOne == 17)
+        if (collectableOne == 20)
         {
             Destroy(redInvisibleWall);
         }
